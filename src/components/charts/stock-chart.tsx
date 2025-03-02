@@ -4,10 +4,8 @@ import {
   createChart,
   ColorType,
   UTCTimestamp,
-  IChartApi,
-  ISeriesApi,
-  CandlestickSeriesOptions,
-  HistogramSeriesOptions,
+  LineSeries,
+  HistogramSeries,
 } from "lightweight-charts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -105,30 +103,19 @@ const StockChart: React.FC<StockChartProps> = ({
     };
 
     // Create series for candlestick data
-    const candlestickSeries = chart.addCandlestickSeries({
-      upColor: "#10b981", // emerald-500 for bullish candles
-      downColor: "#ef4444", // red-500 for bearish candles
-      borderUpColor: "#10b981",
-      borderDownColor: "#ef4444",
-      wickUpColor: "#10b981",
-      wickDownColor: "#ef4444",
-    }) as ISeriesApi<"Candlestick">;
+    const candlestickSeries = chart.addSeries(LineSeries, {
+      color: "#10b981", // emerald-500 for bullish candles
+      lineWidth: 2,
+      lineStyle: 0,
+    });
 
     candlestickSeries.setData(candlestickData);
 
     // Add volume series if volume data is provided
     if (volumeData && volumeData.length > 0) {
-      const volumeSeries = chart.addHistogramSeries({
+      const volumeSeries = chart.addSeries(HistogramSeries, {
         color: "#10b981",
-        priceFormat: {
-          type: "volume",
-        },
-        priceScaleId: "",
-        scaleMargins: {
-          top: 0.8,
-          bottom: 0,
-        },
-      }) as ISeriesApi<"Histogram">;
+      });
 
       volumeSeries.setData(volumeData);
     }

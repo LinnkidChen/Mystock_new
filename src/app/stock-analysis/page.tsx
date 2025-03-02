@@ -12,7 +12,13 @@ export default function StockAnalysisPage() {
               <h2 className="text-xl font-semibold">Stock Chart</h2>
             </div>
             <div className="h-96 bg-gray-100 dark:bg-gray-700 rounded flex items-center justify-center">
-              <StockChart />
+              <StockChart
+                stockSymbol="AAPL"
+                chartTitle="Apple Stock Chart"
+                candlestickData={[]}
+                volumeData={[]}
+                timeframe="1D"
+              />
             </div>
           </div>
         </div>
