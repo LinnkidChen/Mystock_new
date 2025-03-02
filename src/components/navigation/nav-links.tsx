@@ -1,4 +1,13 @@
-import { Home, BarChart2, Settings } from "lucide-react";
+import {
+  Home,
+  BarChart3,
+  LineChart,
+  PieChart,
+  Settings,
+  Bell,
+  Users,
+  HelpCircle,
+} from "lucide-react";
 
 export type NavLink = {
   title: string;
@@ -6,6 +15,7 @@ export type NavLink = {
   icon: React.ComponentType;
 };
 
+// Main navigation items
 export const navLinks: NavLink[] = [
   {
     title: "Dashboard",
@@ -13,13 +23,42 @@ export const navLinks: NavLink[] = [
     icon: Home,
   },
   {
-    title: "Analytics",
-    href: "/analytics",
-    icon: BarChart2,
+    title: "Stock Analysis",
+    href: "/stock-analysis",
+    icon: BarChart3,
+  },
+  {
+    title: "Performance",
+    href: "/performance",
+    icon: LineChart,
+  },
+  {
+    title: "Portfolio",
+    href: "/portfolio",
+    icon: PieChart,
+  },
+  {
+    title: "Users",
+    href: "/users",
+    icon: Users,
+  },
+];
+
+// Bottom navigation items
+export const bottomNavLinks: NavLink[] = [
+  {
+    title: "Notifications",
+    href: "/notifications",
+    icon: Bell,
   },
   {
     title: "Settings",
     href: "/settings",
     icon: Settings,
+  },
+  {
+    title: "Help",
+    href: "/help",
+    icon: HelpCircle,
   },
 ];
