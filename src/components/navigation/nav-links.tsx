@@ -7,6 +7,7 @@ import {
   Bell,
   Users,
   HelpCircle,
+  Code,
 } from "lucide-react";
 
 export type NavLink = {
@@ -41,6 +42,11 @@ export const navLinks: NavLink[] = [
     title: "Users",
     href: "/users",
     icon: Users,
+  },
+  {
+    title: "Dev",
+    href: "/dev",
+    icon: Code,
   },
 ];
 
